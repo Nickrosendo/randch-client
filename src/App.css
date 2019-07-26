@@ -1,14 +1,4 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,15 +9,43 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-conversation {
+  position: fixed;
+  margin: 0 20%;
+  top: 25px;
+  color: #fff;
+  width: 60vw;
+  max-width: 60vw;
+  height: 80vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-MessageBox {
+  position: fixed !important;
+  bottom: 15px;
+  left: 20%;
+  right: 20%;
+  max-height: 30vh;
+  min-height: 10vh;
+  width: 60%;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-MessageBox textarea {
+  height: 100%;
+  resize: none !important;
+  border: none !important;
+}
+
+.CommentBox {
+  background: #fff !important;
+  padding: 15px !important;
+  border-radius: 8px;
+  border: 1px solid #ddd !important;
 }
