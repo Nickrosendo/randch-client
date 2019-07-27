@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import MessageBox from './MessageBox';
 
 // redux
 import { Provider } from 'react-redux';
-import store from './store';
+import store from '../../store';
 
-it('renders without crashing', () => {
+it('should render MessageBox without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <MessageBox />
     </Provider>,
     div
   );

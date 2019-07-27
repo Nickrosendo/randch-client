@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Conversation from './Conversation';
 
 // redux
 import { Provider } from 'react-redux';
-import store from './store';
+import store from '../../store';
 
-it('renders without crashing', () => {
+it('should render Conversation without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <Conversation />
     </Provider>,
     div
   );

@@ -9,17 +9,30 @@
   color: white;
 }
 
-.App-conversation {
+.App-Logo {
+  position: absolute !important;
+  top: 20px;
+}
+
+.App-conversation-container {
+  min-height: 71vh;
+  max-height: 71vh;
+  overflow-y: auto;
   position: fixed;
-  margin: 0 20%;
-  top: 25px;
+  display: inline-block !important;
+  padding-right: 5px;
+  top: 120px;
   color: #fff;
   width: 60vw;
   max-width: 60vw;
-  height: 80vh;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
+  margin-top: 20px;
+}
+
+.App-conversation {
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100%;
+  max-width: 100% !important;
 }
 
 .App-MessageBox {
@@ -37,6 +50,14 @@
   justify-content: center;
 }
 
+.ui.comments .comment:last-child {
+  margin-bottom: 0 !important;
+}
+
+.ui.comments .comment:first-child {
+  margin-top: 0 !important;
+}
+
 .App-MessageBox textarea {
   height: 100%;
   resize: none !important;
@@ -48,4 +69,5 @@
   padding: 15px !important;
   border-radius: 8px;
   border: 1px solid #ddd !important;
+  margin: 20px 0 !important;
 }
