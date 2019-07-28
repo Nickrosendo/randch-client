@@ -5,9 +5,41 @@ import { Form, TextArea } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { addMessage } from '../../store/actions';
 
+const URL = 'ws://localhost:3030';
+
 function MessageBox(props) {
   const { addMessage } = props;
   const [comment, setComment] = useState('');
+  const [ws, setWebSocket] = useState(new WebSocket(URL));
+
+  const initWebsocket = () => {
+    ws.onopen = () => {
+      // on connecting, do nothing but log it to the console
+      console.log('connected');
+    };
+
+    ws.onmessage = evt => {
+      // on receiving a message, add it to the list of messages
+      const message = JSON.parse(evt.data);
+      console.log('ws message: ', message);
+      addMessage({
+        user: 'odnesoR salociN',
+        time: new Date(),
+        replys: [],
+        comment: message.comment,
+      });
+    };
+
+    ws.onclose = () => {
+      console.log('disconnected');
+      // automatically try to reconnect on connection loss
+      setWebSocket(new WebSocket(URL));
+    };
+  };
+
+  useEffect(() => {
+    initWebsocket();
+  });
 
   const handleEnterPress = evt => {
     const enterCode = 13;
@@ -19,7 +51,7 @@ function MessageBox(props) {
         comment,
       };
       addMessage(message);
-
+      ws.send(JSON.stringify(message));
       // wait for handleChange setState of last key pressed
       setTimeout(() => setComment(''), 0);
     }

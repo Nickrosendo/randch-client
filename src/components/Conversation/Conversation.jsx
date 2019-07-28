@@ -35,6 +35,7 @@ function ConversationList({ messages }) {
 function Conversation(props) {
   const { conversation } = props;
   const { messages } = conversation;
+
   return (
     <main className="App-conversation-container">
       <Comment.Group className="App-conversation">
