@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, createRef } from 'react';
 import { Comment, Icon } from 'semantic-ui-react';
 
 // redux
@@ -35,9 +35,23 @@ function ConversationList({ messages }) {
 function Conversation(props) {
   const { conversation } = props;
   const { messages } = conversation;
+  const scrollRef = createRef();
+
+  const scrollToBottom = (ref) => {
+    if(ref && ref.current){
+      const {scrollHeight} = ref.current;
+      if(scrollHeight){
+        ref.current.scrollTop = scrollHeight;
+      }
+    }
+  }
+
+  useEffect(() => {
+    scrollToBottom(scrollRef);
+  });
 
   return (
-    <main className="App-conversation-container">
+    <main className="App-conversation-container" ref={scrollRef}>
       <Comment.Group className="App-conversation">
         <ConversationList messages={messages} />
       </Comment.Group>

@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   messages: [],
+  scrollBottom: false
 };
 
 export default (state = INITIAL_STATE, action) => {

@@ -51,7 +51,10 @@ function MessageBox(props) {
         comment,
       };
       addMessage(message);
-      ws.send(JSON.stringify(message));
+      if(ws) { 
+        console.log('ws: ', ws);
+        ws.send(JSON.stringify(message));
+      }
       // wait for handleChange setState of last key pressed
       setTimeout(() => setComment(''), 0);
     }
@@ -92,7 +95,7 @@ function MessageBox(props) {
 }
 
 const mapDispatchToProps = {
-  addMessage,
+  addMessage
 };
 
 export default connect(
